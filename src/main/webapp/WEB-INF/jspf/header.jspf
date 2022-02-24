@@ -1,0 +1,88 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+         import="by.epamtc.lyskovkirill.restaurant.controller.constant.ControllerConstants"
+         import="by.epamtc.lyskovkirill.restaurant.command.CommandName"
+         import="by.epamtc.lyskovkirill.restaurant.bean.UserRole"
+         import="by.epamtc.lyskovkirill.restaurant.bean.UserStatus" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
+<header class="head">
+    <div class="header">
+        <div class="header-left">
+            <nav class="nav-bar">
+                <div>
+                    <a href="${pageContext.request.contextPath}">
+                        <fmt:message key="header.link.home"/>
+                    </a>
+                </div>
+                |
+                <div>
+                    <a href="${pageContext.request.contextPath}/menu">
+                        <fmt:message key="header.link.menu"/>
+                    </a>
+                </div>
+                |
+                <div>
+                    <a href="${pageContext.request.contextPath}/contacts">
+                        <fmt:message key="header.link.contacts"/>
+                    </a>
+                </div>
+                |
+                <div>
+                    <a href="${pageContext.request.contextPath}/about">
+                        <fmt:message key="header.link.about"/>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="label">
+            <a href="${pageContext.request.contextPath}">Restaurant</a>
+        </div>
+        <div class="header-right">
+            <div class="lang">
+                <a href="?lang=ru"><fmt:message key="header.lang.ru"/></a>
+                <a href="?lang=en"><fmt:message key="header.lang.en"/></a>
+            </div>
+            <c:if test="${!UserStatus.PENALIZED.equals(sessionScope.user.statusName)}">
+                <div class="cart">
+                    <a href="${pageContext.request.contextPath}/cart">
+                        <img src="${pageContext.request.contextPath}/static/Cart.png" alt="<fmt:message key="header.link.cart"/>">
+                    </a>
+                </div>
+            </c:if>
+            <c:if test="${UserRole.GUEST.equals(sessionScope.user.roleName)}">
+                <div class="guest-auth">
+                    <a href="${pageContext.request.contextPath}/sign_in"><fmt:message key="header.link.sign_in"/></a>
+                    <a href="${pageContext.request.contextPath}/register"><fmt:message key="header.link.register"/></a>
+                </div>
+            </c:if>
+            <c:if test="${!UserRole.GUEST.equals(sessionScope.user.roleName)}">
+                <div class="user-actions">
+                    <button id="user-drop-btn">
+                        <span>${sessionScope.user.name}</span>
+                        <svg width="10px" height="10px">
+                            <polygon class="ua-dropdown" points="0,3 10,3 5,8"
+                                     style="fill: rgba(0,0,50,0.7);"></polygon>
+                        </svg>
+                    </button>
+                    <div id="user-actions-dropdown">
+                        <a href="${pageContext.request.contextPath}/account"><fmt:message key="header.link.account"/></a>
+                        <a href="${pageContext.request.contextPath}/settings"><fmt:message key="header.link.settings"/></a>
+                        <c:if test="${UserRole.MANAGER.equals(sessionScope.user.roleName)
+                        || UserRole.ADMIN.equals(sessionScope.user.roleName)}">
+                            <a href="${pageContext.request.contextPath}/manage/orders"><fmt:message key="header.link.orders"/></a>
+                        </c:if>
+                        <c:if test="${UserRole.ADMIN.equals(sessionScope.user.roleName)}">
+                            <a href="${pageContext.request.contextPath}/administration"><fmt:message key="header.link.admin"/></a>
+                        </c:if>
+                        <form action="${pageContext.request.contextPath}/index" method="post">
+                            <input type="hidden" name="${ControllerConstants.COMMAND}" value="${CommandName.SIGN_OUT}">
+                            <input id="sign-out-btn" type="submit" value="<fmt:message key="header.link.sign_out"/>">
+                        </form>
+                    </div>
+                </div>
+            </c:if>
+        </div>
+    </div>
+</header>

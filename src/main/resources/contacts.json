@@ -1,0 +1,52 @@
+{
+  "addressList": [
+    {
+      "country": "Беларусь",
+      "locality": "Минск",
+      "street": "22"
+    }
+  ],
+  "emailList": [
+    "example@google.com"
+  ],
+  "phoneList": [
+    "+375-29 123-45-67"
+  ],
+  "workTimeList": [
+    {
+      "dayOfWeek": "MONDAY",
+      "from": "09:00",
+      "to": "21:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "from": "09:00",
+      "to": "21:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "from": "09:00",
+      "to": "21:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "from": "09:00",
+      "to": "21:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "from": "09:00",
+      "to": "21:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "from": "10:00",
+      "to": "18:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "from": "10:00",
+      "to": "18:00"
+    }
+  ]
+}

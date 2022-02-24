@@ -1,13 +1,46 @@
-## Restaurant
-In the begining guest user can see welcome page with gallery, 'About' information and also can read reviews from other users.
-Then user can visit menu page, look for some interesting dishes and even add it to his cart, that will be stored in his browser cookies, if he is not authorized.
-When user decides to make his orders he can hit the cart page, but to confirm order user must sign in or register.
-At any time user with 'Client' role can visit his profile page, see his order history or edit his settings.
-User with 'Manager' can accept, manage and confirm orders.
-And finally admin can edit menu dishes, menu categories and change user role or status.
+## RESTAURANT final project
+# Java Web Development. Group 34
+
+###### Website visitors are provided with the following services:
+***
+### *Guest:*
+- sign in by the login and password or auto sign in by remember me command next time
+  if checkbox had being activated (client cookie)
+- register
+- recover password if it has been forgotten (in process)
+- view dish menu
+- add dishes to the cart (user cart stores in cookie)
+- manage cart items
+- switch language (with saving chosen lang into the cookies) 
+- overlook reviews
+***
+### *User:*
+- add dishes to the cart (user cart stores in database)
+- manage cart items
+- confirm the order
+- cancel not accepted orders
+- view account profile
+- track order history
+- edit account settings
+- write reviews
+- log out
+***
+### *Manager:*
+- __all user's allowed services__
+- view all orders
+- accept orders
+- manage orders
+***
+### *Admin:*
+- __all manager's allowed services__
+- view all dishes, dish categories and users 
+- add and edit dishes
+- add and edit dish categories
+- change user role or status
 
 ## Project features:
 * User friendly URL
+* List browsing with pagination
 * Localization: en_EN, ru_RU
 * 3 roles
 * Custom tag
@@ -16,3 +49,18 @@ And finally admin can edit menu dishes, menu categories and change user role or 
 
 ### Database schema:
 ![text](https://github.com/k1ly/JWD_WebProject/blob/main/sql/schema.png?raw=true)
+
+### Components used for the project:
+- Java 17
+- Maven
+- Git
+- JavaEE: Servlet, JSP, JSTL
+- Server / Servlet container: Tomcat 10
+- Database: MySQL
+- JDBC
+- Logger: Log4J2
+- Tests: JUnit 4
+- JavaDoc
+
+***
+### CREATED BY KIRILL LYSKOV 2022
